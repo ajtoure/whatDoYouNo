@@ -1,13 +1,17 @@
 //variables
 //font
-$headFont: "Josefin Slab", serif;
-$bodyFont: "Lato", sans-serif;
+$headFont: 'Recursive', sans-serif;
+$bodyFont: 'Lato', sans-serif;
+$titleFont: 'Fredoka One', cursive;
 //color
 $lightBlue: #e3f4f3;
 $neonGreen: #cfff31;
-$violet: #6056f9;
+$violet: #4262F0;
 $black: #000000;
-
+$white: #FFFFFF;
+$red: #f15e32;
+$yellow: #F8DB05;
+$pink: #FF00B3;
 //base styles
 html {
   font-size: 125%;
@@ -23,8 +27,9 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .App {
-  background-color: $violet;
+  background-color: $white;
   text-align: center;
 }
 h1,
@@ -50,14 +55,14 @@ ul {
 }
 a {
   text-decoration: none;
-  color: $black;
+  color: $yellow;
 }
 
 button {
-  background-color: $neonGreen;
+  background-color: $black;
+  color: $yellow;
   margin: 10px;
   padding: 10px;
-
   &:hover {
     transition: 0.3s;
     cursor: pointer;
@@ -68,49 +73,18 @@ button {
 //header styles
 header {
   min-height: 25vh;
-  background-color: $black;
+  background-color: $white;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  border-bottom: 2px solid $violet;
   h1 {
-    color: $violet;
+    color: $pink;
+    text-shadow: 2px 2px $yellow;
     font-size: 3rem;
     letter-spacing: 0.2rem;
-
-    span {
-      position: relative;
-      text-shadow: 0px 0px 30px $neonGreen;
-    }
-    span:nth-child(2n) {
-      top: -5px;
-    }
-    span:nth-child(3n) {
-      top: 5px;
-    }
-    span:nth-child(4n) {
-      top: -2px;
-    }
-    span:nth-child(7) {
-      top: -8px;
-    }
-    span:nth-child(9) {
-      top: -8px;
-    }
-    span:nth-child(10) {
-      top: 10px;
-    }
-    span:nth-child(11) {
-      top: -10px;
-    }
-    span:last-child {
-      top: 20px;
-      right: 10px;
-      color: transparent;
-      font-size: 6rem;
-      font-weight: bold;
-      text-shadow: 0 0 15px $neonGreen, 5px 5px 30px $neonGreen;
-    }
+    font-weight: 800;
+    font-family: $titleFont;
   }
 }
 
@@ -124,7 +98,6 @@ main {
     padding: 20px;
     text-transform: uppercase;
     letter-spacing: 0.5rem;
-    text-shadow: 0 0 10px $black;
   }
   h3 {
     font-size: 1.5rem;
@@ -139,7 +112,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $neonGreen;
+    color: $yellow;
     background-color: $black;
     padding: 5px;
     font-size: 1.8rem;
@@ -163,7 +136,7 @@ main {
 //landing page styles
 .arcadeContainer {
   h2 {
-    color: $neonGreen;
+    color: $violet;
     span {
       position: relative;
     }
@@ -178,7 +151,7 @@ main {
     font-size: 1.2rem;
   }
   button {
-    color: $violet;
+    color: $yellow;
     font-size: 1.5rem;
     margin: 10px 50px;
     width: 150px;
@@ -210,7 +183,7 @@ main {
   margin: auto;
 }
 .miniQuiz {
-  background-color: $lightBlue;
+  background-color: $white;
   padding: 20px 20px 40px;
   margin: 20px auto;
   border-radius: 10px;
@@ -234,18 +207,19 @@ main {
     margin: 10px 50px;
     width: 150px;
     border-radius: 10px;
+    background-color: $violet;
   }
 }
 
 .correct {
   transform: translateX(-101%);
-  background-color: green;
+  background-color: $neonGreen;
   transition: transform 1s, background-color 0.25s;
 }
 
 .incorrect {
   transform: translateX(-101%);
-  background-color: red;
+  background-color: $pink;
   transition: transform 1s, background-color 0.25s;
 }
 
@@ -257,7 +231,7 @@ main {
 //game finishing styles
 .gameOver {
   h2 {
-    color: $neonGreen;
+    color: $violet;
     span {
       position: relative;
     }
@@ -278,12 +252,12 @@ main {
     padding: 10px;
   }
   label {
-    color: $neonGreen;
+    color: $violet;
     text-transform: uppercase;
   }
   input {
-    background-color: $lightBlue;
-    border: 3px solid $neonGreen;
+    background-color: $yellow;
+    border: 3px solid $yellow;
   }
   input,
   button {
@@ -294,7 +268,7 @@ main {
 .drawer {
   height: 100vh;
   width: 5vw;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 255, 0.336);
   position: fixed;
   right: 0;
   top: 0;
@@ -303,7 +277,7 @@ main {
   align-items: center;
   cursor: pointer;
   h2.vertical {
-    color: $neonGreen;
+    color: $yellow;
     opacity: 0.75;
     display: flex;
     flex-direction: column;
@@ -313,7 +287,6 @@ main {
     -webkit-animation: bounce 1s ease-in-out infinite;
     span {
       font-weight: bold;
-      text-shadow: 0 0 10px $black;
     }
   }
   &:hover h2.vertical,
@@ -352,7 +325,7 @@ main .leaderBoard,
   width: 50vw;
   height: 100vh;
   overflow-y: auto;
-  background-color: $violet;
+  background-color: $white;
   padding: 30px;
   border-radius: 10px;
   z-index: 100;
@@ -365,7 +338,7 @@ main .leaderBoard,
     min-width: 120px;
   }
   h2 {
-    color: $neonGreen;
+    color: $yellow;
     font-size: 2rem;
     padding: 20px;
     text-transform: uppercase;
@@ -400,7 +373,7 @@ main .leaderBoard,
       margin: 5px;
       padding: 5px;
       display: flex;
-      background-color: $lightBlue;
+      background-color: $white;
       border-radius: 10px;
     }
     li:nth-child(1) {
@@ -423,7 +396,7 @@ main .leaderBoard,
       width: 25%;
     }
     h4 {
-      color: $neonGreen;
+      color: $yellow;
       text-shadow: 0 0 5px $black;
       text-transform: uppercase;
     }
@@ -442,7 +415,7 @@ main .leaderBoard,
 
 .spinWheel {
   border: 16px solid $violet;
-  border-top: 16px solid $neonGreen;
+  border-top: 16px solid $yellow;
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -470,12 +443,12 @@ main .leaderBoard,
 //footer styles
 footer {
   min-height: 25vh;
-  background-color: $neonGreen;
+  background-color: $violet;
   padding: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  color: $lightBlue;
   .credits {
     p {
       a {
@@ -493,7 +466,7 @@ footer {
   }
 
   h2 {
-    color: $violet;
+    color: $yellow;
     text-transform: uppercase;
     font-size: 1rem;
   }
@@ -504,11 +477,11 @@ footer {
     text-align: left;
   }
   a {
-    color: $violet;
+    color: $lightBlue;
     font-size: 0.8rem;
     &:hover,
     &:focus {
-      color: $black;
+      color: $yellow;
     }
   }
 
@@ -574,7 +547,6 @@ footer {
         position: absolute;
         top: 40px;
         right: 40%;
-        text-shadow: 0 0 15px $neonGreen, 5px 5px 30px $neonGreen;
       }
     }
   }

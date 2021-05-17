@@ -19,7 +19,7 @@ const LandingPage = ({
 
   return (
     <section className="arcadeContainer">
-      <h2><span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span> <span>!</span><span>!</span></h2>
+      <h2>Welcome!</h2>
       <p>
         You may think you no. But, do you really know what you no? Try this homophonous quiz and sea weather you know or knot.
       </p>

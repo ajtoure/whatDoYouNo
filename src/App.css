@@ -1,0 +1,787 @@
+html {
+  font-size: 125%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.App {
+  background-color: #6056f9;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+}
+
+p,
+a,
+li,
+label,
+input,
+button {
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+button {
+  background-color: #e3f4f3;
+  margin: 10px;
+  padding: 10px;
+}
+
+button:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+  -webkit-transform: scale3d(1.05, 1.05, 1);
+          transform: scale3d(1.05, 1.05, 1);
+}
+
+header {
+  min-height: 25vh;
+  background-color: #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header h1 {
+  color: #6056f9;
+  font-size: 3rem;
+  letter-spacing: 0.2rem;
+}
+
+main {
+  min-height: 50vh;
+  padding: 40px;
+}
+
+main h2 {
+  font-size: 2rem;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-shadow: 0 0 10px #000000;
+}
+
+main h3 {
+  font-size: 1.5rem;
+  padding: 10px;
+}
+
+main .timerBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+main .timer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #cfff31;
+  background-color: #000000;
+  padding: 5px;
+  font-size: 1.8rem;
+  border-radius: 10px;
+}
+
+main .timer .minute,
+main .timer .second {
+  width: 80px;
+  display: block;
+}
+
+main .questionCount,
+main .scoreCount {
+  text-transform: uppercase;
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.arcadeContainer h2 {
+  color: #cfff31;
+}
+
+.arcadeContainer h2 span {
+  position: relative;
+}
+
+.arcadeContainer h2 span:nth-child(2n) {
+  top: 5px;
+}
+
+.arcadeContainer h2 span:nth-child(5n) {
+  top: -5px;
+}
+
+.arcadeContainer p {
+  font-size: 1.2rem;
+}
+
+.arcadeContainer button {
+  color: #6056f9;
+  font-size: 1.5rem;
+  margin: 10px 50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  animation: bounce 1s ease-in-out infinite;
+  -webkit-animation: bounce 1s ease-in-out infinite;
+}
+
+.miniQuizContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.quizContainer {
+  overflow: hidden;
+}
+
+.bufferContainer {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 101%;
+  background-color: purple;
+}
+
+.spinWheelContainer {
+  margin: auto;
+}
+
+.miniQuiz {
+  background-color: #e3f4f3;
+  padding: 20px 20px 40px;
+  margin: 20px auto;
+  border-radius: 10px;
+  height: 45vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.miniQuiz .definition,
+.miniQuiz button {
+  font-size: 1.2rem;
+}
+
+.miniQuiz .definition::first-letter {
+  text-transform: uppercase;
+}
+
+.miniQuiz button {
+  padding: 20px;
+  margin: 10px 50px;
+  width: 150px;
+  border-radius: 10px;
+}
+
+.correct {
+  -webkit-transform: translateX(-101%);
+          transform: translateX(-101%);
+  background-color: green;
+  -webkit-transition: background-color 0.25s, -webkit-transform 1s;
+  transition: background-color 0.25s, -webkit-transform 1s;
+  transition: transform 1s, background-color 0.25s;
+  transition: transform 1s, background-color 0.25s, -webkit-transform 1s;
+}
+
+.incorrect {
+  -webkit-transform: translateX(-101%);
+          transform: translateX(-101%);
+  background-color: red;
+  -webkit-transition: background-color 0.25s, -webkit-transform 1s;
+  transition: background-color 0.25s, -webkit-transform 1s;
+  transition: transform 1s, background-color 0.25s;
+  transition: transform 1s, background-color 0.25s, -webkit-transform 1s;
+}
+
+.bufferContainer .correct,
+.bufferContainer .incorrect {
+  background-color: #e3f4f3;
+}
+
+.gameOver h2 {
+  color: #cfff31;
+}
+
+.gameOver h2 span {
+  position: relative;
+}
+
+.gameOver h2 span:nth-child(2n) {
+  top: 5px;
+}
+
+.gameOver h2 span:nth-child(3n) {
+  top: -5px;
+}
+
+.gameOver form {
+  padding: 30px 0;
+}
+
+.gameOver label,
+.gameOver input,
+.gameOver button {
+  margin: 10px;
+  padding: 10px;
+}
+
+.gameOver label {
+  color: #cfff31;
+  text-transform: uppercase;
+}
+
+.gameOver input {
+  background-color: #e3f4f3;
+  border: 3px solid #cfff31;
+}
+
+.gameOver input,
+.gameOver button {
+  border-radius: 10px;
+}
+
+.drawer {
+  height: 100vh;
+  width: 5vw;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.drawer h2.vertical {
+  color: #cfff31;
+  opacity: 0.75;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  animation: bounce 1s ease-in-out infinite;
+  -webkit-animation: bounce 1s ease-in-out infinite;
+}
+
+.drawer h2.vertical span {
+  font-weight: bold;
+  text-shadow: 0 0 10px #000000;
+}
+
+.drawer:hover h2.vertical,
+.drawer:focus h2.vertical {
+  opacity: 1;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+@keyframes bounce {
+  0% {
+    translate: 0px 0px;
+  }
+  50% {
+    translate: 0px 7px;
+  }
+  100% {
+    translate: 0px 0px;
+  }
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    translate: 0px 0px;
+  }
+  50% {
+    translate: 0px 7px;
+  }
+  100% {
+    translate: 0px 0px;
+  }
+}
+
+main .leaderBoard,
+.leaderBoard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50vw;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #6056f9;
+  padding: 30px;
+  border-radius: 10px;
+  z-index: 100;
+  position: absolute;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  left: 100%;
+}
+
+main .leaderBoard img,
+.leaderBoard img {
+  max-width: 250px;
+  width: 40%;
+  min-width: 120px;
+}
+
+main .leaderBoard h2,
+.leaderBoard h2 {
+  color: #cfff31;
+  font-size: 2rem;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-shadow: 0 0 10px #000000;
+}
+
+main .leaderBoard h2 span,
+.leaderBoard h2 span {
+  position: relative;
+}
+
+main .leaderBoard h2 span:nth-child(2n),
+.leaderBoard h2 span:nth-child(2n) {
+  top: -5px;
+}
+
+main .leaderBoard h2 span:nth-child(3n),
+.leaderBoard h2 span:nth-child(3n) {
+  top: 5px;
+}
+
+main .leaderBoard h2 span:nth-child(4n),
+.leaderBoard h2 span:nth-child(4n) {
+  top: -2px;
+}
+
+main .leaderBoard h2 span:nth-child(7),
+.leaderBoard h2 span:nth-child(7) {
+  top: -8px;
+}
+
+main .leaderBoard ul,
+.leaderBoard ul {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .leaderBoard ul li,
+.leaderBoard ul li {
+  width: 100%;
+  margin: 5px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #e3f4f3;
+  border-radius: 10px;
+}
+
+main .leaderBoard ul li:nth-child(1),
+.leaderBoard ul li:nth-child(1) {
+  background-color: transparent;
+}
+
+main .leaderBoard ul li:nth-child(2),
+.leaderBoard ul li:nth-child(2) {
+  background-image: radial-gradient(at top left, goldenrod, transparent), radial-gradient(at bottom right, goldenrod, transparent);
+}
+
+main .leaderBoard ul li:nth-child(3),
+.leaderBoard ul li:nth-child(3) {
+  background-image: radial-gradient(at top left, silver, transparent), radial-gradient(at bottom right, silver, transparent);
+}
+
+main .leaderBoard ul li:nth-child(4),
+.leaderBoard ul li:nth-child(4) {
+  background-image: radial-gradient(at top left, #da8a67, transparent), radial-gradient(at bottom right, #da8a67, transparent);
+}
+
+main .leaderBoard ul h4,
+main .leaderBoard ul span,
+.leaderBoard ul h4,
+.leaderBoard ul span {
+  width: 25%;
+}
+
+main .leaderBoard ul h4,
+.leaderBoard ul h4 {
+  color: #cfff31;
+  text-shadow: 0 0 5px #000000;
+  text-transform: uppercase;
+}
+
+.leaderBoard.active {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.spinWheelContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.spinWheel {
+  border: 16px solid #6056f9;
+  border-top: 16px solid #cfff31;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  -webkit-animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+footer {
+  min-height: 25vh;
+  background-color: #cfff31;
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .credits p a {
+  margin-left: 5px;
+}
+
+footer .githubIcon {
+  font-size: 35px;
+}
+
+footer .githubIconMini {
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+footer h2 {
+  color: #6056f9;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+footer p {
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+footer a {
+  color: #6056f9;
+  font-size: 0.8rem;
+}
+
+footer a:hover, footer a:focus {
+  color: #000000;
+}
+
+footer div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+footer div section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+@media (max-width: 925px) {
+  .leaderBoard h2 {
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+  }
+}
+
+@media (max-width: 780px) {
+  main .timer {
+    font-size: 1.5rem;
+  }
+  main .timer .minute,
+  main .timer .second {
+    width: 50px;
+  }
+  main .questionCount,
+  main .scoreCount {
+    font-size: 1rem;
+  }
+  .miniQuiz .definition,
+  .miniQuiz button {
+    font-size: 1rem;
+  }
+  .miniQuiz button {
+    margin: 10px 10px;
+  }
+  .leaderBoard {
+    width: 75vw;
+  }
+}
+
+@media (max-width: 620px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header h1 span:last-child {
+    position: absolute;
+    top: 40px;
+    right: 40%;
+    text-shadow: 0 0 15px #cfff31, 5px 5px 30px #cfff31;
+  }
+  main h2 {
+    font-size: 1.5rem;
+    padding: 20px 0px;
+    letter-spacing: 0.2rem;
+    text-shadow: 0 0 8px #000000;
+  }
+  main .timer {
+    font-size: 1.5rem;
+  }
+  main .timer .minute,
+  main .timer .second {
+    width: 40px;
+  }
+  .gameOver form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+  .leaderBoard {
+    width: 100vw;
+  }
+}
+
+@media (max-width: 530px) {
+  main {
+    padding: 20px 10px 20px;
+  }
+  main .timerBar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .miniQuiz {
+    padding: 10px;
+  }
+  .miniQuiz div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .miniQuiz button {
+    padding: 15px;
+    margin: 5px;
+  }
+  .drawer {
+    width: 8vw;
+  }
+  .leaderBoard li,
+  .leaderBoard h4 {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 420px) {
+  header h1 {
+    font-size: 1.5rem;
+    letter-spacing: 0rem;
+  }
+  header h1 span:last-child {
+    position: absolute;
+    top: 40px;
+    right: 40%;
+    text-shadow: 0 0 15px #cfff31, 5px 5px 30px #cfff31;
+  }
+  .arcadeContainer p {
+    font-size: 1rem;
+  }
+  .miniQuiz .definition {
+    font-size: 0.9rem;
+  }
+  .leaderBoard h2 {
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+  }
+  footer div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  footer div section {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+/*# sourceMappingURL=App.css.map */
